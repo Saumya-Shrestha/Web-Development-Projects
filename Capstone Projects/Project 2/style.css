@@ -1,0 +1,117 @@
+body {
+    font-family: "Playfair Display", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #000;
+    color: white;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+nav {
+    display: block;
+    margin: 20px 200px;
+}
+
+.left {
+    display: float;
+    float: left;
+    font-weight: 900;
+    font-size: 32px;
+}
+
+.right {
+    display: float;
+    float: right;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.hero {
+    margin-top: 270px;
+}
+
+.hero .stroke{
+    font-size: 128px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: black;
+    -webkit-text-stroke: 2px white
+}
+
+.hero .overlap {
+    display: float;
+    font-size: 128px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    bottom: 180px;
+}
+
+.hero p {
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+    display: float;
+    position: relative;
+    bottom: 270px;
+    right: 300px;
+}
+
+.socials {
+    display: float;
+    position: relative;
+    bottom: 280px;
+    right: 492px;
+}
+
+.featured {
+    display: float;
+    font-size: 64px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#about {
+    display: float;
+    margin-top: 200px;
+
+}
+
+#about > p {
+    display: float;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.pfp {
+    display: float;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}
+
+#contact {
+    display: float;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+#contact > h1 {
+    display: float;
+    font-size: 64px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#contact > p {
+    display: float;
+    font-size: 36px;
+    font-weight: 400;
+}
+
