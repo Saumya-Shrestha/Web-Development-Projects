@@ -1,0 +1,17 @@
+{
+  "name": "web-development-projects",
+  "version": "1.0.0",
+  "description": "Dr. Angela Yu's Complete Web Development Bootcamp",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+  
+}
