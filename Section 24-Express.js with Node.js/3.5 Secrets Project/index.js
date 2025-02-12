@@ -14,6 +14,7 @@ const correctPassword = "ILoveProgramming";
 const app = express();
 const port = 3000;
 
+//app.use(express.urlencoded({ exteneded: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 function passwordChecker(req, res, next) {
