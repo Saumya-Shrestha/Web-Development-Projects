@@ -1,134 +1,141 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Form Example</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
 
-<head>
-  <title>Form Example</title>
-  <style>
-    /* CSS styles */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
 
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+      h1 {
+        text-align: center;
+      }
 
-    h1 {
-      text-align: center;
-    }
+      form {
+        margin-top: 20px;
+      }
 
-    form {
-      margin-top: 20px;
-    }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
 
-    input[type="text"],
-    input[type="number"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
+      input[type="submit"] {
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
 
-    input[type="submit"] {
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
+      .response-area {
+        margin-top: 20px;
+        background-color: #f0f0f0;
 
+        padding: 20px 5px;
+      }
 
-    .response-area {
-      margin-top: 20px;
-      background-color: #f0f0f0;
+      #get {
+        background-color: #2ecc71;
+      }
 
-      padding: 20px 5px;
-    }
+      #get:hover {
+        background-color: #27ae60;
+      }
 
-    #get {
-      background-color: #2ecc71;
-    }
+      #post {
+        background-color: #3498db;
+      }
 
-    #get:hover {
-      background-color: #27ae60;
-    }
+      #post:hover {
+        background-color: #2980b9;
+      }
 
-    #post {
-      background-color: #3498db;
-    }
+      #put {
+        background-color: #9b59b6;
+      }
 
-    #post:hover {
-      background-color: #2980b9;
-    }
+      #put:hover {
+        background-color: #8e44ad;
+      }
 
-    #put {
-      background-color: #9b59b6;
-    }
+      #patch {
+        background-color: #f1c40f;
+      }
 
-    #put:hover {
-      background-color: #8e44ad;
-    }
+      #patch:hover {
+        background-color: #f39c12;
+      }
 
-    #patch {
-      background-color: #f1c40f;
-    }
+      #delete {
+        background-color: #e74c3c;
+      }
 
-    #patch:hover {
-      background-color: #f39c12;
-    }
+      #delete:hover {
+        background-color: #c0392b;
+      }
+    </style>
+  </head>
 
-    #delete {
-      background-color: #e74c3c;
-    }
+  <body>
+    <div class="container">
+      <div class="response-area">
+        <% if(locals.content) { %>
+        <p><%= content %></p>
+        <% } %>
+      </div>
+      <form id="myForm" method="post">
+        <label for="idInput">Id:</label>
+        <input type="text" id="idInput" name="id" />
 
-    #delete:hover {
-      background-color: #c0392b;
-    }
-  </style>
-</head>
+        <label for="secretInput">Secret:</label>
+        <input type="text" id="secretInput" name="secret" />
 
-<body>
-  <div class="container">
-    <div class="response-area">
-      <p>
-        <%= content %>
-      </p>
+        <label for="scoreInput">Score:</label>
+        <input type="number" id="scoreInput" name="score" />
+
+        <label for="submit">Route:</label>
+        <input id="get" type="submit" value="GET" formaction="/get-secret" />
+        <input id="post" type="submit" value="POST" formaction="/post-secret" />
+        <input id="put" type="submit" value="PUT" formaction="/put-secret" />
+        <input
+          id="patch"
+          type="submit"
+          value="PATCH"
+          formaction="/patch-secret"
+        />
+        <input
+          id="delete"
+          type="submit"
+          value="DELETE"
+          formaction="/delete-secret"
+        />
+      </form>
     </div>
-    <form id="myForm" method="post">
-      <label for="idInput">Id:</label>
-      <input type="text" id="idInput" name="id">
-
-      <label for="secretInput">Secret:</label>
-      <input type="text" id="secretInput" name="secret">
-
-      <label for="scoreInput">Score:</label>
-      <input type="number" id="scoreInput" name="score">
-
-      <label for="submit">Route:</label>
-      <input id="get" type="submit" value="GET" formaction="/get-secret">
-      <input id="post" type="submit" value="POST" formaction="/post-secret">
-      <input id="put" type="submit" value="PUT" formaction="/put-secret">
-      <input id="patch" type="submit" value="PATCH" formaction="/patch-secret">
-      <input id="delete" type="submit" value="DELETE" formaction="/delete-secret">
-    </form>
-  </div>
-</body>
-
+  </body>
 </html>
