@@ -40,7 +40,7 @@ app.post("/jokes", (req, res) => {
 });
 
 //5. PUT a joke
-app.put("/jokes", (req, res) => {
+app.put("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const replacementJoke = {
     id: id,
@@ -53,7 +53,7 @@ app.put("/jokes", (req, res) => {
 });
 
 //6. PATCH a joke
-app.patch("/jokes", (req, res) => {
+app.patch("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const existingJoke = jokes.find((joke) => joke.id === id);
   const replacementJoke = {
