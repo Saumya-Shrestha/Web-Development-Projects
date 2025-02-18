@@ -47,7 +47,7 @@ app.put("/jokes/:id", (req, res) => {
     jokeText: req.body.text,
     jokeType: req.body.type,
   };
-  const searchIndex = jokes.find((joke) => joke.id === id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
   jokes[searchIndex] = replacementJoke;
   res.json(replacementJoke);
 });
@@ -62,7 +62,7 @@ app.patch("/jokes/:id", (req, res) => {
     jokeType: req.body.type || existingJoke.jokeType,
   };
 
-  const searchIndex = jokes.find((joke) => joke.id === id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
   jokes[searchIndex] = replacementJoke;
   // console.log(jokes[searchIndex]);
   res.json(replacementJoke);
@@ -71,7 +71,7 @@ app.patch("/jokes/:id", (req, res) => {
 //7. DELETE Specific joke
 app.delete("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const searchIndex = jokes.find((joke) => joke.id === id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
   if (searchIndex > -1) {
     jokes.splice(searchIndex, 1);
     res.sendStatus(200);
