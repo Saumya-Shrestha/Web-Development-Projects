@@ -25,19 +25,25 @@ var numbers = [3, 56, 2, 48, 5];
 // console.log(newNumber);
 
 //Find - find the first item that matches from an array.
-const newNumber = numbers.find(function (num) {
-  return num > 10;
-});
-console.log(newNumber);
+// const newNumber = numbers.find(function (num) {
+//   return num > 10;
+// });
+// console.log(newNumber);
 
 //FindIndex - find the index of the first item that matches.
-const newNumberIndex = numbers.findIndex(function (num) {
-  return num > 10;
-});
-console.log(newNumberIndex);
+// const newNumberIndex = numbers.findIndex(function (num) {
+//   return num > 10;
+// });
+// console.log(newNumberIndex);
 
 // If you're running this locally in VS Code use the commands:
 // npm install
 // to install the node modules and
 // npm run dev
-// to launch your react project in your browser
+
+import emojipedia from "./emojipedia";
+
+const newEmojipedia = emojipedia.map(function (emojiEntry) {
+  return emojiEntry.meaning.substring(0, 100);
+});
+console.log(newEmojipedia);
