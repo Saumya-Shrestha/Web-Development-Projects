@@ -1,27 +1,18 @@
 import React, { useState } from "react";
 
 function App() {
-  const [todo, setTodo] = useState({
-    items: [],
-    currentItem: "",
-  });
+  const [currentItem, setCurrentItem] = useState("");
+  const [todo, setTodo] = useState([]);
 
   function handleChange(event) {
-    const { value } = event.target;
-    setTodo((prevValue) => ({
-      ...prevValue,
-      currentItem: value,
-    }));
+    setCurrentItem(event.target.value);
   }
 
   function handleAdd() {
-    if (todo.currentItem.trim()) {
-      setTodo((prevValue) => ({
-        ...prevValue,
-        items: [...prevValue.items, prevValue.currentItem],
-        currentItem: "",
-      }));
-    }
+    setTodo((prevValue) => {
+      return [...prevValue, currentItem];
+    });
+    setCurrentItem("");
   }
 
   return (
@@ -34,7 +25,7 @@ function App() {
           onChange={handleChange}
           name="currentItem"
           type="text"
-          value={todo.currentItem}
+          value={currentItem}
         />
         <button onClick={handleAdd}>
           <span>Add</span>
@@ -42,8 +33,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {todo.items.map((item, index) => (
-            <li key={index}>{item}</li>
+          {todo.map((todoItem, index) => (
+            <li key={index}>{todoItem}</li>
           ))}
         </ul>
       </div>
